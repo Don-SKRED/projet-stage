@@ -1,0 +1,2 @@
+Mais je me rappelle que mon prof de BDD disait que c'était assez étrange d'utiliser ce genre de système : tu ferais mieux d'uploader tes fichiers, de le placer quelque part dans un dossier spécifique, et de n'enregistrer dans ta table que la path du fichier.
+Ainsi, tu pourrai le télécharger en mettant simplement path dans l'url (car, si le navigateur ne sait pas lire un type de fichier, il le télécharge automatiquement).

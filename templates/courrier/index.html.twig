@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Section Courrier{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Courrier</h1>
+                <p>Résumé du Courrier</p>
+                <p>Reçus: {{ app.user.received|length }} </p>
+                <p>Envoyés: {{ app.user.sent|length }}</p>
+                <a href="{{ path("send") }}" class="btn btn-primary">Envoyer un courrier</a>
+
+            </div>
+        </div>
+
+    </section>
+    <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-weight-bold py-2">Nouveau courrier</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.nom_c)}}
+                            {{ form_widget(form.nom_c)}}
+
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.notes)}}
+                            {{ form_widget(form.notes)}}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.status)}}
+                            {{ form_widget(form.status)}}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.fichier)}}
+                            {{ form_widget(form.fichier)}}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.recipient)}}
+                            {{ form_widget(form.recipient)}}
+                        </div>
+
+                    </div>
+                    <br />
+
+
+
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button"> {{form_widget(form.envoyer)}} <i class="fas fa-paper-plane-o ml-1"></i></a>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

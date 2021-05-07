@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+
+            <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
+            {#{{ encore_entry_link_tags('app') }}#}
+
+
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+            <script type="text/javascript" src={{asset('assets/js/jquery2.min.js') }}></script>
+            <script type="text/javascript" src={{asset('assets/datatables/jquery.dataTables.min.js') }}></script>
+            <script type="text/javascript" src={{asset('assets/datatables/dataTables.bootstrap4.min.js') }}></script>
+            <script type="text/javascript" src={{asset('assets/js/script.js') }}></script>
+            <script type="text/javascript" src={{asset('assets/js/bootstrap.min.js') }}></script>
+
+        {% endblock %}
+    </head>
+    <body>
+    {% block navbar %} {% endblock %}
+    {#{% for message in app.flashes("courrier") %}
+        <div class="alert alert-success alert-dissmissible fade show" role="alert">
+            {{courrier}}
+            <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="close"></button>
+        </div>
+    {% endfor %}#}
+        {% block body %}{% endblock %}
+    </body>
+</html>
