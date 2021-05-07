@@ -63,14 +63,11 @@ class Courrier
      */
     private $fichier;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Libelle::class, mappedBy="courrier", orphanRemoval=true)
-     */
-    private $libelles;
+ 
     public function __construct()
     {
         $this->created_at = new \DateTime();
-        $this->libelles = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -174,33 +171,4 @@ class Courrier
         return $this;
     }
 
-    /**
-     * @return Collection|Libelle[]
-     */
-    public function getLibelles(): Collection
-    {
-        return $this->libelles;
-    }
-
-    public function addLibelle(Libelle $libelle): self
-    {
-        if (!$this->libelles->contains($libelle)) {
-            $this->libelles[] = $libelle;
-            $libelle->setCourrier($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLibelle(Libelle $libelle): self
-    {
-        if ($this->libelles->removeElement($libelle)) {
-            // set the owning side to null (unless already changed)
-            if ($libelle->getCourrier() === $this) {
-                $libelle->setCourrier(null);
-            }
-        }
-
-        return $this;
-    }
 }
